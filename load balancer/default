@@ -1,0 +1,12 @@
+upstream web-backend {
+  server 10.10.15.253:8080;
+  server 10.10.25.253:8081;
+}
+
+server {
+  listen 80;
+  location / {
+    proxy_pass http://web-backend;
+  }
+}
+
